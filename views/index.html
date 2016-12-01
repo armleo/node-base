@@ -1,0 +1,9 @@
+{{#user}}
+	Hello {{username}}
+{{/user}}
+{{^user}}
+	Login <a href="/login">here!</a>
+{{/user}}
+{{#posts}}
+<br/><a href="/post/{{slug}}">{{title}}</a>
+{{/posts}}
