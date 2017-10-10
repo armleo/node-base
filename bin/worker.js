@@ -35,7 +35,9 @@ app.use(session({
 app.use(bodyParser.json({
     limit:"10kb"
 }));
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
 // Используем движок усов
 app.engine('html', cons.mustache);
 // установить движок рендеринга
@@ -52,7 +54,7 @@ app.use(require('./errorHandler'));
 
 // Запустим сервер на порту 3000 и сообщим об этом в консоли.
 // Все Worker-ы  должны иметь один и тот же порт
-app.listen(config.port,function(err){
+app.listen(config.port, function(err){
 	if(err) throw err;
 	// Если есть ошибка сообщить об этом
 	logger.log(`Running server at port ${config.port}!`);
